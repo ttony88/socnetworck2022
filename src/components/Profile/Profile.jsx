@@ -1,4 +1,4 @@
-const Content = () => {
+const Profile = () => {
     return(
         <div className='content'>
             <div>
@@ -13,4 +13,4 @@ const Content = () => {
         </div>
     )
 }
-export default Content;
+export default Profile;
