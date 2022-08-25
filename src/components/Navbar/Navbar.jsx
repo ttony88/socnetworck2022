@@ -1,6 +1,8 @@
+import styles from './Navbar.module.css'
+
 const Navbar = () => {
     return(
-        <nav className='nav'>
+        <nav className={styles.nav}>
         <div>
           Profile
         </div>

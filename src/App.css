@@ -10,20 +10,9 @@
   gap: 10px;                     
 }
 
-.header{
-  grid-area: h;
-  background-color: blue;
-}
+
  
-.nav{
-  grid-area: n;
-  background-color: blue;
-}
 
-.content{
-  grid-area: c;
-}
 
-.header img{
-  height: 100%;
-}
+
+
