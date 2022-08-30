@@ -10,6 +10,11 @@
   gap: 10px;                     
 }
 
+.content{
+  grid-area: c;
+  background-color: aqua;
+}
+
 
  
 
