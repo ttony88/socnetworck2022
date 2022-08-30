@@ -1,5 +1,5 @@
-import MyPost from "../MyPost/MyPost";
-import Post from "../Post/Post";
+import MyPost from "./MyPost/MyPost";
+import Post from "./Post/Post";
 import styles from "./Profile.module.css";
 
 const Profile = () => {
