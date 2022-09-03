@@ -3,7 +3,7 @@ import styles from './Massage.module.css'
 const Massage = (props) => {
 
     return(
-        <div className={styles.massage}>{props.massage}</div>
+        <div className={styles.massage}>{props.textMassage}</div>
     )
 }
 

@@ -1,12 +1,13 @@
 import Massage from './Massage/Massage';
 import styles from './Massages.module.css'
 
-const Massages = () => {
+const Massages = (props) => {
+
+let massages = props.massages.map(massage => <Massage textMassage={massage.textMassage} />)
+
   return (
     <div className={styles.massages}>
-        <Massage massage='Hi' />
-        <Massage massage='How are you' />
-        <Massage massage='Cool' />
+      {massages}
     </div>
   );
 };
