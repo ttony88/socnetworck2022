@@ -11,18 +11,27 @@ let state = {
     massagesPage: {
 
         dialogs: [
-            {id: 1, name: 'Anton'},
-            {id: 2, name: 'Dasha'},
-            {id: 3, name: 'Sava'},
-            {id: 4, name: 'Rita'}
+            {id: 1, name: 'Anton', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
+            {id: 2, name: 'Dasha', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
+            {id: 3, name: 'Sava', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
+            {id: 4, name: 'Rita', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'}
         ],
       
         massages: [
-            {id: 1, textMassage: 'Hi'},
-            {id: 2, textMassage: 'How are you'},
-            {id: 3, textMassage: 'Cool'}
+            {id: 1, myMassage: 'Hi', frendsMassage: 'hello'},
+            {id: 2, myMassage: 'How are you', frendsMassage: 'yo'},
+            {id: 3, myMassage: 'Cool', frendsMassage: 'yes'}
         ]
-    }  
+    }, 
+    
+    navBar: {
+
+        frends: [
+            {id: 1, name: 'Anton', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
+            {id: 2, name: 'Dasha', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
+            {id: 3, name: 'Sava', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
+        ]
+    }
     
 }
 

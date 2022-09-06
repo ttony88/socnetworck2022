@@ -3,7 +3,7 @@ import Dialog from './Dialog/Dialog';
 
 const DialogItem = (props) => {
 
-  let dialogs = props.dialogs.map(dialog => <Dialog name={dialog.name} />)
+  let dialogs = props.dialogs.map(dialog => <Dialog dialog={dialog} />)
   return (
     <div className={styles.dialogsItem}>
         {dialogs}
