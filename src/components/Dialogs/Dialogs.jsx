@@ -7,7 +7,7 @@ const Dialogs = (props) => {
     return (
         <div className={styles.dialogs}>
             <DialogItem dialogs={props.massagesPage.dialogs} />
-            <Massages massages={props.massagesPage.massages} />
+            <Massages massages={props.massagesPage.massages} frendsMassages={props.massagesPage.frendsMassages} addMassageItem={props.addMassageItem} />
         </div>
     )
 }

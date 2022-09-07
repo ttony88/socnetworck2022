@@ -1,6 +1,10 @@
+let reRender = () => {}
+
 let state = {
 
     profilePage: {
+
+        postText: 'jnfdklkd',
 
         posts: [
             {id: 1, massage: 'hi, my frend', like: 99},
@@ -18,9 +22,15 @@ let state = {
         ],
       
         massages: [
-            {id: 1, myMassage: 'Hi', frendsMassage: 'hello'},
-            {id: 2, myMassage: 'How are you', frendsMassage: 'yo'},
-            {id: 3, myMassage: 'Cool', frendsMassage: 'yes'}
+            {id: 1, myMassage: 'Hi'},
+            {id: 2, myMassage: 'How are you'},
+            {id: 3, myMassage: 'Cool'}
+        ],
+
+        frendsMassages: [
+            {id: 1, frendsMassage: 'hello'},
+            {id: 2, frendsMassage: 'yo'},
+            {id: 3, frendsMassage: 'yes'}
         ]
     }, 
     
@@ -35,4 +45,34 @@ let state = {
     
 }
 
+
 export default state
+
+window.state = state
+
+export let addMassageItem = (text) => {
+
+    state.massagesPage.massages.push(
+        {id: 4, myMassage: text}
+    )
+    reRender(state)
+}
+
+export let addPostsItem = (text) => {
+    state.profilePage.posts.push(
+        {id: 3, massage: text, like: 0}
+        
+    )
+    reRender(state)
+}
+
+export let changePostText = (text) => {
+    state.profilePage.postText = text
+    reRender(state)
+}
+
+export const subscraib = (observer) => {
+    reRender = observer
+}
+
+
