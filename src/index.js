@@ -1,27 +1,26 @@
-import state from './redux/state'
+import store from './redux/store'
 import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {addMassageItem, addPostsItem, changePostText, subscraib} from './redux/state'
 
 
 export const reRender = (state) => {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
       <React.StrictMode>
-        <App state={state} 
-             addMassageItem={addMassageItem} 
-             addPostsItem={addPostsItem} 
-             changePostText={changePostText} />
+        <App state={store.getState()} 
+             addMassageItem={store.addMassageItem.bind(store)} 
+             addPostsItem={store.addPostsItem.bind(store)} 
+             changePostText={store.changePostText.bind(store)} />
       </React.StrictMode>
     );
   }
 
 
-reRender(state)
+reRender(store.getState())
 
-subscraib(reRender)
+store.subscraib(reRender)
 
 reportWebVitals();
