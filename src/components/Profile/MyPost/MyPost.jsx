@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './MyPost.module.css'
+import { addPostsItem, updatePostText } from '../../../redux/profileReducer';
 
 const MyPost = (props) => {
 
@@ -7,12 +8,12 @@ const MyPost = (props) => {
 
   const addPost = () => {
     let text = newPost.current.value
-    props.addPostsItem(text)
+    props.dispatch(addPostsItem(text))
   }
 
   const newPostChange = () => {
     let text = newPost.current.value
-    props.changePostText(text)
+    props.dispatch(updatePostText(text))
   }
 
   return (

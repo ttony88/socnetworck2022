@@ -5,14 +5,14 @@ import MyMassage from './MyMassage/MyMassage';
 
 const Massages = (props) => {
 
-let massages = props.massages.map(massage => <Massage myMassage={massage.myMassage} />)
+let massages = props.massages.map(massage => <Massage key={massage.id} myMassage={massage.myMassage} />)
 
 let frendsMassages = props.frendsMassages.map(frendsMassages => {
-                     <FrendsMassages frendsMassages={frendsMassages.frendsMassage}/>})                                                      
+                     <FrendsMassages key={frendsMassages.id} frendsMassages={frendsMassages.frendsMassage}/>})                                                      
 
   return (
     <div className={styles.massages}>
-      <MyMassage addMassageItem={props.addMassageItem}/>
+      <MyMassage dispatch={props.dispatch}/>
       {massages}
       {frendsMassages}
     </div>

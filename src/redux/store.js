@@ -1,88 +1,94 @@
+import profileReducer from './profileReducer'
+import messagesReducer from './messagesReducer'
+import navbarReducer from './navbarReducer'
+
 let store = {
+  _state: {
+    profilePage: {
+      posts: [
+        { id: 1, massage: "hi, my frend", like: 99 },
+        { id: 2, massage: "hello", like: 17 },
+      ],
 
-    _state: {
+      postText: null
+    },
 
-        profilePage: {
-    
-            posts: [
-                {id: 1, massage: 'hi, my frend', like: 99},
-                {id: 2, massage: 'hello', like: 17}
-            ]
+    massagesPage: {
+      dialogs: [
+        {
+          id: 1,
+          name: "Anton",
+          ava: "https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg",
         },
-        
-        massagesPage: {
-    
-            dialogs: [
-                {id: 1, name: 'Anton', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
-                {id: 2, name: 'Dasha', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
-                {id: 3, name: 'Sava', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
-                {id: 4, name: 'Rita', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'}
-            ],
-          
-            massages: [
-                {id: 1, myMassage: 'Hi'},
-                {id: 2, myMassage: 'How are you'},
-                {id: 3, myMassage: 'Cool'}
-            ],
-    
-            frendsMassages: [
-                {id: 1, frendsMassage: 'hello'},
-                {id: 2, frendsMassage: 'yo'},
-                {id: 3, frendsMassage: 'yes'}
-            ]
-        }, 
-        
-        navBar: {
-    
-            frends: [
-                {id: 1, name: 'Anton', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
-                {id: 2, name: 'Dasha', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
-                {id: 3, name: 'Sava', ava: 'https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg'},
-            ]
-        }
-        
-    }, 
-    
-getState() {
-    return this._state
-},
+        {
+          id: 2,
+          name: "Dasha",
+          ava: "https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg",
+        },
+        {
+          id: 3,
+          name: "Sava",
+          ava: "https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg",
+        },
+        {
+          id: 4,
+          name: "Rita",
+          ava: "https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg",
+        },
+      ],
 
-_callSubsckribe() {},
+      massages: [
+        { id: 1, myMassage: "Hi" },
+        { id: 2, myMassage: "How are you" },
+        { id: 3, myMassage: "Cool" },
+      ],
 
-addMassageItem(text) {
+      frendsMassages: [
+        { id: 1, frendsMassage: "hello" },
+        { id: 2, frendsMassage: "yo" },
+        { id: 3, frendsMassage: "yes" },
+      ],
+    },
 
-    this._state.massagesPage.massages.push(
-        {id: 4, myMassage: text}
-    )
-    this._callSubsckribe(this._state)
-},
+    navBar: {
+      frends: [
+        {
+          id: 1,
+          name: "Anton",
+          ava: "https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg",
+        },
+        {
+          id: 2,
+          name: "Dasha",
+          ava: "https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg",
+        },
+        {
+          id: 3,
+          name: "Sava",
+          ava: "https://image.shutterstock.com/image-illustration/isolated-yellow-smiling-face-upper-600w-677579845.jpg",
+        },
+      ],
+    },
+  },
 
-addPostsItem(text) {
-    this._state.profilePage.posts.push(
-        {id: 3, massage: text, like: 0}
-        
-    )
-    this._callSubsckribe(this._state)
-},
+  getState() {
+    return this._state;
+  },
 
-changePostText (text) {
-    this._state.profilePage.postText = text
-    this._callSubsckribe(this._state)
-},
+  _callSubsckribe() {},
 
-subscraib(observer) {
-    this._callSubsckribe = observer
-}
-}
+  subscraib(observer) {
+    this._callSubsckribe = observer;
+  },
 
-export default store
+  dispatch(action) {
 
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.massagesPage = messagesReducer(this._state.massagesPage, action)
+    this._state.navBar = navbarReducer(this._state.navBar, action)
 
+    this._callSubsckribe(this._state);
+  },
+};
 
-
-
-
-
-
-
-
+export default store;

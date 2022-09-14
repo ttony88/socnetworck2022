@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './MyMassage.module.css'
+import { addMassageItem } from './../../../../redux/messagesReducer'
 
 const MyMassage = (props) => {
 
@@ -7,7 +8,7 @@ const MyMassage = (props) => {
 
     let addMassage = () => {
         let text = newMassageItem.current.value
-        props.addMassageItem(text)
+        props.dispatch(addMassageItem(text))
     }
     
     return(

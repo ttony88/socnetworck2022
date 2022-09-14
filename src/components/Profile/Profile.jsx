@@ -4,14 +4,13 @@ import styles from "./Profile.module.css";
 
 const Profile = (props) => {
 
-  let posts = props.profilePage.posts.map(post => <Post massage={post.massage} like={post.like} />)
+  let posts = props.profilePage.posts.map(post => <Post key={post.id} massage={post.massage} like={post.like} />)
 
   return (
     <div className={styles.profile}>
       <div>ava + status</div>
-      <MyPost addPostsItem={props.addPostsItem} 
-              postText={props.profilePage.postText}
-              changePostText={props.changePostText} />
+      <MyPost dispatch={props.dispatch} 
+              postText={props.profilePage.postText} />
       {posts}
     </div>
   );
