@@ -4,7 +4,7 @@ import FrendNavBar from './FrendNavBar/FrendNavBar';
 const FrendsNavBar = (props) => { 
 
   const frends = props.navBar.frends.map((frend) => (
-    <FrendNavBar frend={frend}/>
+    <FrendNavBar key={frend.id} frend={frend}/>
   ));
 
   return (

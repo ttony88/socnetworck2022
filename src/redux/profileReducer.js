@@ -1,20 +1,40 @@
 const ADD_POST_ITEM = 'ADD_POST_ITEM'
 const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT'
 
-const profileReducer = (state, action) => {
+let initialState = {
+    posts: [
+        { id: 1, massage: "hi, my frend", like: 99 },
+        { id: 2, massage: "hello", like: 17 },
+    ],
 
-    if(action.type === ADD_POST_ITEM){
+    postText: 'HI'
+}
 
-        state.posts.push({id: 3, massage: action.massage, like: 0})
+const profileReducer = (state=initialState, action) => {
 
-    } else if(action.type === UPDATE_POST_TEXT){
+    switch (action.type) {
 
-        state.postText = action.text
+        case ADD_POST_ITEM:{
+            let newPost = {id: 3, massage: state.postText, like: 0}
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                postText: ''
+            }
+        }
+
+        case UPDATE_POST_TEXT:{
+            return {
+                ...state,
+                postText: action.postText
+            }
+        }
+        default:
+            return state
     }
-    return state
 }       
 
-export const addPostsItem = (text) => ({type: ADD_POST_ITEM, massage: text})
-export const updatePostText = (text) => ({type: UPDATE_POST_TEXT, text: text})
+export const addPostsItem = () => ({type: ADD_POST_ITEM})
+export const updatePostText = (text) => ({type: UPDATE_POST_TEXT, postText: text})
 
 export default profileReducer

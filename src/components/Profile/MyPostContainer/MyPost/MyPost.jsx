@@ -1,19 +1,17 @@
-import React from 'react';
+import React from "react";
 import styles from './MyPost.module.css'
-import { addPostsItem, updatePostText } from '../../../redux/profileReducer';
 
 const MyPost = (props) => {
 
-  const newPost = React.createRef()
+  const newPost = React.createRef();
 
   const addPost = () => {
-    let text = newPost.current.value
-    props.dispatch(addPostsItem(text))
+    return props.addPost()
   }
 
   const newPostChange = () => {
-    let text = newPost.current.value
-    props.dispatch(updatePostText(text))
+    let text = newPost.current.value;
+    return props.newPostChange(text)
   }
 
   return (

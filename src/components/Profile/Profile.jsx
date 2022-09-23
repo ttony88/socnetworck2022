@@ -1,17 +1,16 @@
-import MyPost from "./MyPost/MyPost";
-import Post from "./Post/Post";
+import React from "react";
+import MyPostContainer from "./MyPostContainer/MyPostContainer";
+import PostsContainer from "./PostsContainer/PostsContainer";
 import styles from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
 
-  let posts = props.profilePage.posts.map(post => <Post key={post.id} massage={post.massage} like={post.like} />)
-
   return (
     <div className={styles.profile}>
-      <div>ava + status</div>
-      <MyPost dispatch={props.dispatch} 
-              postText={props.profilePage.postText} />
-      {posts}
+      <ProfileInfo />
+      <MyPostContainer />
+      <PostsContainer />
     </div>
   );
 };

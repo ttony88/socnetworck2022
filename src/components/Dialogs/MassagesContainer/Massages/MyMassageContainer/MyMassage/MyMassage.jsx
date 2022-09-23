@@ -1,16 +1,15 @@
 import React from 'react'
 import styles from './MyMassage.module.css'
-import { addMassageItem } from './../../../../redux/messagesReducer'
 
 const MyMassage = (props) => {
 
     let newMassageItem = React.createRef()
 
-    let addMassage = () => {
-        let text = newMassageItem.current.value
-        props.dispatch(addMassageItem(text))
+    const addMassage = () => {
+        let text = newMassageItem.current.value;
+        return props.addMassage(text)
     }
-    
+
     return(
         <div className={styles.myMassage}>
             <textarea ref={newMassageItem} />
