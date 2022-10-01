@@ -1,12 +1,12 @@
 import styles from './Dialogs.module.css'
-import DialogItem from './DialogsItem/DialogItem'
+import DialogsItemContainer from './DialogsItemContsiner/DialogsItemContainer'
 import MassagesContainer from './MassagesContainer/MassagesContainer'
 
 const Dialogs = (props) => {
 
     return (
         <div className={styles.dialogs}>
-            {/*<DialogItem dialogs={props.massagesPage.dialogs} />*/}
+            <DialogsItemContainer />
             <MassagesContainer />
         </div>
     )

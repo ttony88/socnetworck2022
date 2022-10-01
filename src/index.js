@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
       
       <React.StrictMode>
         <Provider store={store}>
-          <App state={store.getState()}/>
+          <App />
         </Provider>     
       </React.StrictMode>
     );

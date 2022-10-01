@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import FrendsNavBar from "./FrendsNavBar/FrendsNavBar";
+import FrendsNavBarContainer from "./FrendsNavBarContainer/FrendsNavBarContainer";
 
-const Navbar = (props) => {
+const Navbar = () => {
 
   const activeClass = ({isActive}) => (isActive ? styles.activeLink : styles.inactiveLink)
 
@@ -16,6 +16,9 @@ const Navbar = (props) => {
           <NavLink to="/dialogs" className={activeClass}>Massages</NavLink>
         </div>
         <div className={styles.item}>
+          <NavLink to="/users" className={activeClass}>Users</NavLink>
+        </div>
+        <div className={styles.item}>
           <NavLink to="/music" className={activeClass}>Music</NavLink>
         </div>
         <div className={styles.item}>
@@ -25,7 +28,7 @@ const Navbar = (props) => {
           <NavLink to="/settings" className={activeClass}>Settings</NavLink>
         </div>
       </nav>
-      <FrendsNavBar navBar={props.navBar} />
+      <FrendsNavBarContainer />
     </div>
   );
 };

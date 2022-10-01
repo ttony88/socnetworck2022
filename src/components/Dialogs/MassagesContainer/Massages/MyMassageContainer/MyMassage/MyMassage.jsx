@@ -6,13 +6,17 @@ const MyMassage = (props) => {
     let newMassageItem = React.createRef()
 
     const addMassage = () => {
+        return props.addMassage()
+    }
+
+    const updateMassageText = () => {
         let text = newMassageItem.current.value;
-        return props.addMassage(text)
+        return props.updateMassageText(text)
     }
 
     return(
         <div className={styles.myMassage}>
-            <textarea ref={newMassageItem} />
+            <textarea onChange={updateMassageText} value={props.massageText} ref={newMassageItem} />
             <button onClick={addMassage} className={styles.addMassage}>Add massage</button>
         </div>
     )

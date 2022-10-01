@@ -7,7 +7,7 @@ let initialState = {
         { id: 2, massage: "hello", like: 17 },
     ],
 
-    postText: 'HI'
+    postText: ''
 }
 
 const profileReducer = (state=initialState, action) => {

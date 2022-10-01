@@ -1,16 +1,25 @@
 import MyMassage from "./MyMassage/MyMassage";
 import { connect } from "react-redux";
-import { addMassageItem } from "../../../../../redux/messagesReducer";
+import { addMassageItem, updateMassageText } from "../../../../../redux/messagesReducer";
 
-let mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    addMassage: (text) => {
-      
-      dispatch(addMassageItem(text));
+    massageText: state.massagesPage.massageText
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addMassage: () => {
+      dispatch(addMassageItem());
+    },
+
+    updateMassageText: (text) => {
+      dispatch(updateMassageText(text));
     },
   };
 };
  
-const MyMassageContainer = connect(null, mapDispatchToProps)(MyMassage);
+const MyMassageContainer = connect(mapStateToProps, mapDispatchToProps)(MyMassage);
 
 export default MyMassageContainer;
