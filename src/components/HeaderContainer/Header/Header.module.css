@@ -6,3 +6,11 @@
 .header img{
     height: 100%;
 }
+
+.login{
+    float: right;
+}
+
+.login a{
+    color: #ffffff;
+}
