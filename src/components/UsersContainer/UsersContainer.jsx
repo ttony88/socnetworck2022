@@ -1,25 +1,25 @@
 import React from "react"
-import * as axios from 'axios'
 import { connect } from "react-redux";
 import Users from "./Users/Users";
 import { setUsers, follow, unfollow, setTotalUsersCount, setCurrentPage, toggleIsFetching } from "../../redux/usersReducer"
+import { usersAPI } from '../../api/api'
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`).then(respons => {
-            this.props.setUsers(respons.data.items)
+        usersAPI.getUsers(this.props.pageSize, this.props.currentPage).then(data => {
+            this.props.setUsers(data.items)
             this.props.toggleIsFetching(false)
-            this.props.setTotalUsersCount(respons.data.totalCount)
+            this.props.setTotalUsersCount(data.totalCount)
         })
     }
     // при таком синтаксее определения методов не нужен bind
     onPageChange = (numberPage) => {
         this.props.setCurrentPage(numberPage)
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${numberPage}`).then(respons => {
-            this.props.setUsers(respons.data.items)
+        usersAPI.getUsers(this.props.pageSize, numberPage).then(data => {
+            this.props.setUsers(data.items)
             this.props.toggleIsFetching(false)
         })
     }
