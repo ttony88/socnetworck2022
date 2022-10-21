@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Massages from "./Massages/Massages";
+import { compose } from 'redux'
 
 let mapStateToProps = (state) => {
      
@@ -8,6 +9,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-const MassagesContainer = connect(mapStateToProps)(Massages)
-
-export default MassagesContainer
+export default compose(connect(mapStateToProps))(Massages)

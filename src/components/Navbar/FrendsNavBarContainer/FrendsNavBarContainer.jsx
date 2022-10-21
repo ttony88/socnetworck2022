@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import FrendsNavBar from "./FrendsNavBar/FrendsNavBar";
+import { compose } from 'redux'
 
 const mapStateToProps = (state) => {
      
@@ -8,6 +9,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const FrendsNavBarContainer = connect(mapStateToProps)(FrendsNavBar)
-
-export default FrendsNavBarContainer
+export default compose(connect(mapStateToProps))(FrendsNavBar)

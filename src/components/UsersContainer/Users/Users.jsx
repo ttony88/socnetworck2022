@@ -1,8 +1,7 @@
 import userPhoto from '../../../assets/images/user_person.png'
 import Preloader from '../../common/Preloader/Preloader'
 import styles from "./Users.module.css"
-import { NavLink } from "react-router-dom";
-import { followAPI } from '../../../api/api' 
+import { NavLink } from "react-router-dom"; 
 
 const Users = (props) => {
     let users = props.users.map(user => {
@@ -13,19 +12,11 @@ const Users = (props) => {
                 </NavLink>
                 <div>
                     {user.followed ? 
-                    <button onClick={() => {
-                        followAPI.unfollowUser(user.id).then(data => {
-                            if (data.resultCode === 0){
-                                props.unfollow(user.id)
-                            }
-                        })
+                    <button disabled={props.followingInProgres.some(id => id === user.id)} onClick={() => {
+                        props.unfollow(user.id)
                     }}>unfollow</button> :
-                    <button onClick={() => {
-                        followAPI.followUser(user.id).then(data => {
-                            if(data.resultCode === 0){
-                                props.follow(user.id)
-                            }
-                        })
+                    <button disabled={props.followingInProgres.some(id => id === user.id)} onClick={() => {
+                        props.follow(user.id)
                     }}>follow</button>
                     }
                 </div>

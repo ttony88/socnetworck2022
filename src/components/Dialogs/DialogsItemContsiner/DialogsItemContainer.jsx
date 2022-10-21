@@ -1,12 +1,10 @@
 import { connect } from "react-redux";
 import DialogItem from "./DialogsItem/DialogItem";
+import { compose } from 'redux'
 
 const mapStateToProps = (state) => {
     return {
        dialogs: state.massagesPage.dialogs
     }
 }
-
-const DialogsItemContainer = connect(mapStateToProps)(DialogItem)
-
-export default DialogsItemContainer
+export default compose(connect(mapStateToProps))(DialogItem)
