@@ -1,23 +1,15 @@
 import React from "react";
-import styles from './MyPost.module.css'
+import MyPostForm from './MyPostForm/MyPostForm'
 
 const MyPost = (props) => {
 
-  const newPost = React.createRef();
-
-  const addPost = () => {
-    return props.addPost()
-  }
-
-  const newPostChange = () => {
-    let text = newPost.current.value;
-    return props.newPostChange(text)
+  const addPost = (values) => {
+    return props.addPostsItem(values.myPostTextarea)
   }
 
   return (
     <div>
-      <textarea onChange={newPostChange} value={props.postText}  ref={newPost} className={styles.post}/>
-      <button onClick={addPost} className={styles.newPost}>add post</button>
+      <MyPostForm onSubmit={addPost}/>
     </div>
   );
 };

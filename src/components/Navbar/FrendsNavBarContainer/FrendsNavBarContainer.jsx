@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import FrendsNavBar from "./FrendsNavBar/FrendsNavBar";
 import { compose } from 'redux'
+import { getFrends } from '../../../selectors/selectors'
 
 const mapStateToProps = (state) => {
      
     return {
-        frends: state.navBar.frends
+        frends: getFrends(state)
     }
 }
 

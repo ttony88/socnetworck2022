@@ -1,5 +1,4 @@
-const ADD_MASSAGE_ITEM = 'ADD_MASSAGE_ITEM'
-const UPDATE_MASSAGE_TEXT = 'UPDATE_MASSAGE_TEXT'
+const ADD_MASSAGE_ITEM = 'messages/ADD_MASSAGE_ITEM'
 
 let initialState = {
     dialogs: [
@@ -35,9 +34,7 @@ let initialState = {
         { id: 1, frendsMassage: "hello" },
         { id: 2, frendsMassage: "yo" },
         { id: 3, frendsMassage: "yes" },
-    ],
-
-    massageText: ''
+    ]
 }
 
 const messagesReducer = (state=initialState, action) => {
@@ -47,21 +44,14 @@ const messagesReducer = (state=initialState, action) => {
         case ADD_MASSAGE_ITEM:
             return {
                 ...state,
-                massages: [...state.massages, {id: 4, myMassage: state.massageText}],
-                massageText: ''
+                massages: [...state.massages, {id: 4, myMassage: action.massageText}]
             }
-        case UPDATE_MASSAGE_TEXT:
-            return {
-                ...state,
-                massageText: action.massageText
-            } 
     
         default:
             return state
     }
 }
 
-export const addMassageItem = () => ({type: ADD_MASSAGE_ITEM})
-export const updateMassageText = (text) => ({type: UPDATE_MASSAGE_TEXT, massageText: text})
+export const addMassageItem = (massageText) => ({type: ADD_MASSAGE_ITEM, massageText})
 
 export default messagesReducer
