@@ -40,4 +40,5 @@ const ParamsUrlUser = (props) => {
     )
 }
 
-export default compose(connect(mapStateToProps, {getUser, getUserStatus, updataUserStatus}), withAuthRedirect)(ParamsUrlUser)
+export default compose(connect(mapStateToProps, {getUser, getUserStatus, updataUserStatus}), 
+withAuthRedirect)(ParamsUrlUser)

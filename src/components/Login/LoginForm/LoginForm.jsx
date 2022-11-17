@@ -2,6 +2,7 @@ import { Field, reduxForm  } from "redux-form"
 import { Input } from "../../FormControl/FormControl"
 import { required, maxLength30 } from '../../../utils/validatorsForm'
 import styles from '../../FormControl/FormControl.module.css'
+import { reset } from 'redux-form'
 
 const LoginForm = (props) => {
     

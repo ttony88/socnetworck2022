@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom'
 const Login = (props) => {
     
     let loginMe = (formData) => {
-        return props.loginMe(formData.email, formData.password, formData.rememberMe)
+        props.loginMe(formData.email, formData.password, formData.rememberMe)
     }
 
     if(props.isAuth){

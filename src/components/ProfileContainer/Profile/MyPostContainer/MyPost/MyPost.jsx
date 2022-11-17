@@ -1,10 +1,12 @@
 import React from "react";
 import MyPostForm from './MyPostForm/MyPostForm'
+import { reset } from "redux-form"
 
 const MyPost = (props) => {
 
-  const addPost = (values) => {
-    return props.addPostsItem(values.myPostTextarea)
+  const addPost = (values, dispatch) => {
+    props.addPostsItem(values.myPostTextarea)
+    dispatch(reset('addMyPost'))
   }
 
   return (
